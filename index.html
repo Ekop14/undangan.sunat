@@ -1,122 +1,222 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Undangan Khitanan - Luqman Rafif Azzaidan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Montserrat:wght@300;400;600&family=Amiri:ital@0;1&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Montserrat', sans-serif; background: #1a2f26; overflow-x: hidden; }
-        .islamic-bg { background-image: url('https://www.transparenttextures.com/patterns/arabesque.png'); }
-        .serif { font-family: 'Cinzel', serif; }
-        .amiri { font-family: 'Amiri', serif; }
-        .glass-luxury { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(212, 175, 55, 0.3); }
-        .gold-glow { color: #d4af37; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Khitanan - LEGEND ULTRA</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Montserrat:wght@300;400;600&family=Amiri&display=swap" rel="stylesheet">
+
+<style>
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#1a2f26;
+    overflow-x:hidden;
+}
+
+/* Islamic background */
+.islamic-bg{
+    background-image:url('https://www.transparenttextures.com/patterns/arabesque.png');
+}
+
+/* Fonts */
+.serif{font-family:'Cinzel',serif;}
+.amiri{font-family:'Amiri',serif;}
+
+/* Glass luxury */
+.glass-luxury{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(212,175,55,0.3);
+}
+
+/* Gold glow */
+.gold-glow{
+    color:#d4af37;
+    text-shadow:0 0 10px rgba(212,175,55,0.5);
+}
+
+/* Floating particles */
+.particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:radial-gradient(circle,rgba(212,175,55,0.08) 1px,transparent 1px);
+    background-size:60px 60px;
+    animation:floatBg 20s linear infinite;
+    opacity:0.4;
+}
+
+@keyframes floatBg{
+    from{transform:translateY(0);}
+    to{transform:translateY(-60px);}
+}
+
+/* Fade in */
+.fade-in{
+    animation:fadeIn 1.2s ease-out;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:scale(0.95);}
+    to{opacity:1;transform:scale(1);}
+}
+
+/* Button premium */
+.soft-hover{
+    transition:all 0.25s ease;
+}
+.soft-hover:hover{
+    transform:translateY(-4px) scale(1.02);
+    box-shadow:0 15px 35px rgba(212,175,55,0.25);
+}
+.soft-hover:active{
+    transform:scale(0.98);
+}
+</style>
 </head>
-<body class="text-white islamic-bg">
 
-    <!-- Tombol Pembuka -->
-    <div id="welcome" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#1a2f26] text-center p-6">
-        <h2 class="serif text-2xl mb-6 text-[#d4af37]">Undangan Syukuran</h2>
-        <p class="mb-8">Luqman Rafif Azzaidan</p>
-        <button onclick="bukaUndangan()" class="px-8 py-3 border border-[#d4af37] rounded-full hover:bg-[#d4af37] transition font-semibold">
-            Buka Undangan
-        </button>
+<body class="text-white islamic-bg fade-in">
+
+<div class="particles"></div>
+
+<!-- WELCOME -->
+<div id="welcome" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#1a2f26] text-center p-6">
+    <h2 class="serif text-2xl mb-6 text-[#d4af37]">Undangan Syukuran</h2>
+    <p class="mb-8">Luqman Rafif Azzaidan</p>
+    <button onclick="bukaUndangan()" class="px-8 py-3 border border-[#d4af37] rounded-full soft-hover">
+        Buka Undangan
+    </button>
+</div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+    <source src="musik.mp3" type="audio/mpeg">
+</audio>
+
+<button id="muteBtn" onclick="toggleMute()" class="fixed top-4 right-4 hidden bg-black/30 p-2 rounded-full border border-[#d4af37]">
+🎵
+</button>
+
+<!-- CONTENT -->
+<div class="min-h-screen flex flex-col items-center justify-center text-center p-6">
+
+    <p class="amiri text-2xl gold-glow mb-4">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+
+    <h1 class="serif text-4xl gold-glow mb-8">
+        LUQMAN RAFIF<br>AZZAIDAN
+    </h1>
+
+    <div class="w-60 h-60 rounded-full overflow-hidden border-4 border-[#d4af37] mb-8">
+        <img src="rafif.png" class="w-full h-full object-cover">
     </div>
 
-    <!-- Tombol Mute -->
-    <button id="muteBtn" onclick="toggleMute()" class="fixed top-4 right-4 z-40 bg-black/30 p-2 rounded-full hidden border border-[#d4af37]">🎵</button>
-    <!-- Audio -->
-    <audio id="music" loop preload="auto">
-        <source src="https://assets.mixkit.co/music/preview/mixkit-serene-view-443.mp3" type="audio/mpeg">
-    </audio>
+    <!-- COUNTDOWN -->
+    <div class="flex space-x-3 glass-luxury p-4 rounded-2xl">
 
-    <!-- Konten Utama -->
-    <div class="min-h-screen flex flex-col items-center justify-center p-6 text-center">
-        <p class="amiri text-2xl mb-4 gold-glow">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
-        <h1 class="serif text-4xl mb-8 gold-glow">LUQMAN RAFIF<br>AZZAIDAN</h1>
-        
-        <div class="w-60 h-60 rounded-full overflow-hidden border-4 border-[#d4af37] shadow-[0_0_20px_rgba(212,175,55,0.5)] mb-8">
-            <img src="rafif.png" class="w-full h-full object-cover">
+        <div>
+            <div id="days" class="text-2xl gold-glow">00</div>
+            <div class="text-[10px]">Hari</div>
         </div>
 
-        <!-- Countdown -->
-        <div id="countdown" class="flex justify-center space-x-4 mb-8 glass-luxury p-4 rounded-2xl border border-[#d4af37]/30">
-            <div class="flex flex-col"><span id="days" class="text-2xl font-bold gold-glow">00</span><span class="text-[9px] uppercase">Hari</span></div>
-            <div class="flex flex-col"><span id="hours" class="text-2xl font-bold gold-glow">00</span><span class="text-[9px] uppercase">Jam</span></div>
-            <div class="flex flex-col"><span id="minutes" class="text-2xl font-bold gold-glow">00</span><span class="text-[9px] uppercase">Menit</span></div>
-            <div class="flex flex-col"><span id="seconds" class="text-2xl font-bold gold-glow">00</span><span class="text-[9px] uppercase">detik</span></div>
+        <div>
+            <div id="hours" class="text-2xl gold-glow">00</div>
+            <div class="text-[10px]">Jam</div>
         </div>
+
+        <div>
+            <div id="minutes" class="text-2xl gold-glow">00</div>
+            <div class="text-[10px]">Menit</div>
+        </div>
+
+        <div>
+            <div id="seconds" class="text-2xl gold-glow">00</div>
+            <div class="text-[10px]">Detik</div>
+        </div>
+
     </div>
 
-    <!-- Detail & Tali Kasih -->
-    <div class="max-w-sm mx-auto p-8 glass-luxury rounded-[2rem] mx-4 mb-20">
-        <h2 class="serif text-2xl mb-8 text-center gold-glow">Detail Acara</h2>
-        <div class="space-y-6 text-center text-stone-200 mb-10">
-            <div><p class="text-[#d4af37] uppercase text-[10px] tracking-widest">Hari & Tanggal</p><p class="font-semibold">Sabtu,40 Juli 2026</p></div>
-            <div><p class="text-[#d4af37] uppercase text-[10px] tracking-widest">Waktu</p><p class="font-semibold">09:00 WIB s/d Selesai</p></div>
-             <p class="text-[#d4af37] uppercase text-[10px] tracking-widest">Lokasi</p>
-            <p class="font-semibold mb-2">Cluster Malachite ABK, BTR 3, Blok M18, No 6</p>
-    
-            <a href="https://www.google.com/maps/place/Jl.+Malachite+Raya,+RW.022,+Cimuning,+Kec.+Mustika+Jaya,+Kota+Bks,+Jawa+Barat/@-6.3294088,107.005835,3a,75y,213.25h,70.24t/data=!3m7!1e1!3m5!1s8PxoJZNIsSmYWjAHT5g6yQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D19.75628540347917%26panoid%3D8PxoJZNIsSmYWjAHT5g6yQ%26yaw%3D213.25344962331724!7i16384!8i8192!4m15!1m8!3m7!1s0x2e69922a0f04fc4b:0xf365a88d8361ec1!2sJl.+Malachite+Raya,+RW.022,+Cimuning,+Kec.+Mustika+Jaya,+Kota+Bks,+Jawa+Barat!3b1!8m2!3d-6.3304878!4d107.0071795!16s%2Fg%2F11f156px3c!3m5!1s0x2e69922a0f04fc4b:0xf365a88d8361ec1!8m2!3d-6.3304878!4d107.0071795!16s%2Fg%2F11f156px3c?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D/?q=Cluster+Malachite+ABK+BTR+3+Blok+M18+No+6" 
-           target="_blank"
-           class="inline-block mt-2 px-4 py-2 bg-[#d4af37] text-[#1a2f26] rounded-xl font-bold text-sm hover:bg-white transition">
-        📍 Lihat Lokasi
+</div>
+
+<!-- DETAIL -->
+<div class="max-w-sm mx-auto glass-luxury p-6 rounded-2xl mt-10">
+
+    <h2 class="text-center serif gold-glow mb-4">Detail Acara</h2>
+
+    <p class="text-center mb-2">Sabtu, 3 Juli 2026</p>
+    <p class="text-center mb-2">09:00 WIB s/d Selesai</p>
+    <p class="text-center mb-4">Cluster Malachite ABK</p>
+
+    <a href="https://maps.google.com/?q=Cluster+Malachite+ABK+BTR+3+Blok+M18+No+6"
+       target="_blank"
+       class="block text-center bg-[#d4af37] text-[#1a2f26] py-2 rounded-xl soft-hover">
+       📍 Lihat Lokasi
     </a>
-        </div>
-        
-        <h3 class="serif text-xl mb-4 gold-glow text-center">Tali Kasih</h3>
-        <div class="bg-white/10 p-4 rounded-xl border border-[#d4af37]/20 mb-8 text-center">
-            <p class="font-bold text-sm text-[#d4af37]">BCA - 1234567890</p>
-            <p class="text-xs">a.n. Eko Priyatno</p>
-        </div>
 
-        <a href="https://wa.me/6285772283996" class="block text-center bg-[#d4af37] text-[#1a2f26] py-4 rounded-2xl font-bold hover:bg-white transition shadow-[0_0_15px_rgba(212,175,55,0.6)]">
-            KONFIRMASI KEHADIRAN
-        </a>
-    </div>
+</div>
 
-    <script>
-        const music = document.getElementById('music');
-        const welcome = document.getElementById('welcome');
-        const muteBtn = document.getElementById('muteBtn');
-        
-        function bukaUndangan() { 
-            music.play(); 
-            welcome.style.display = 'none'; 
-            muteBtn.classList.remove('hidden'); 
-        }
-        
-        function toggleMute() { 
-            music.muted = !music.muted; 
-            muteBtn.innerHTML = music.muted ? "🔇" : "🎵"; 
-        }
+<!-- TALI KASIH -->
+<div class="max-w-sm mx-auto glass-luxury p-6 rounded-2xl mt-6">
 
-        const eventDate = new Date("July 3, 2026 09:00:00").getTime();
-        setInterval(function () {
-    const now = new Date().getTime();
-    const distance = eventDate - now;
+    <h2 class="text-center serif gold-glow mb-4">Tali Kasih</h2>
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    <p class="text-center">BCA - 1234567890</p>
+    <p class="text-center text-sm mb-4">a.n. Eko Priyatno</p>
 
-    document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
-    document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
-    document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
-    document.getElementById("second").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+    <a href="https://wa.me/6285772283996"
+       class="block text-center bg-[#d4af37] text-[#1a2f26] py-3 rounded-xl soft-hover">
+       💬 Konfirmasi Kehadiran
+    </a>
 
-    // kalau waktu sudah habis
-    if (distance < 0) {
-        document.getElementById("days").innerHTML = "00";
-        document.getElementById("hours").innerHTML = "00";
-        document.getElementById("minutes").innerHTML = "00";
-        document.getElementById("second").innerHTML = "00";
-    }
-}, 1000);
-    </script>
+</div>
+
+<script>
+const music=document.getElementById("music");
+const welcome=document.getElementById("welcome");
+const muteBtn=document.getElementById("muteBtn");
+
+function bukaUndangan(){
+    welcome.style.display="none";
+    muteBtn.classList.remove("hidden");
+
+    music.volume=0;
+    music.play();
+
+    let v=0;
+    let fade=setInterval(()=>{
+        if(v<1){
+            v+=0.05;
+            music.volume=v;
+        }else clearInterval(fade);
+    },80);
+
+    setTimeout(()=>{
+        document.querySelector(".glass-luxury")
+        .scrollIntoView({behavior:"smooth"});
+    },1500);
+}
+
+function toggleMute(){
+    music.muted=!music.muted;
+    muteBtn.innerHTML=music.muted?"🔇":"🎵";
+}
+
+const eventDate=new Date("July 3, 2026 09:00:00").getTime();
+
+setInterval(()=>{
+    const now=new Date().getTime();
+    const d=eventDate-now;
+
+    const f=n=>String(Math.floor(n)).padStart(2,"0");
+
+    document.getElementById("days").innerText=f(d/(1000*60*60*24));
+    document.getElementById("hours").innerText=f((d%(1000*60*60*24))/(1000*60*60));
+    document.getElementById("minutes").innerText=f((d%(1000*60*60))/(1000*60));
+    document.getElementById("seconds").innerText=f((d%(1000*60))/1000);
+
+},1000);
+</script>
+
 </body>
 </html>
